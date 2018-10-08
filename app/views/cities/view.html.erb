@@ -1,0 +1,28 @@
+<!-- view template: a list of all cities, or a specific city -->
+
+<% if @cities.nil? %> <!-- if no cities stored in hash, instruction to create a new city -->
+  <p>There are no cities to display, please create a new city at 'http://localhost:1337/cities/new'
+     or click the update button below
+  </p>
+<% else %>
+  <% if @cities.key?(@name) %> <!-- else if a particular city exists in cities hash -->
+    <h1> City: <%= @name %> </h1>
+    <p>
+      Landmark: <%= @landmark %>
+      Population: <%= @population %>
+      Weather: <%= @weather %>°F
+    </p>
+  <% else %>
+    <% @cities.each do |city| %> <!-- otherwise, show all cities -->
+      <h1> City: city.name </h1>
+      <p>
+        Landmark: <%= city.landmark %>
+        Population: <%= city.population %>
+        Weather: <%= city.weather %>°F
+      </p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<!-- create a button to the update page -->
+<%= button_to "Update", 'new', method: :get %>

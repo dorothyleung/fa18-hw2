@@ -1,0 +1,12 @@
+<!-- update template: Update properties of a city and request to post -->
+
+<%= form_with local: true, method: 'post', url: 'update' do |form| %>
+  City:<br>
+  <%= form.text_field :name %><br>
+  Updated Population:<br>
+  <%= form.text_field :population, type: 'Integer' %><br>
+  Updated Most Famous Landmark:<br>
+  <%= form.text_field :landmark %><br>
+  <br>
+  <%= form.submit "Submit" %>
+<% end %>

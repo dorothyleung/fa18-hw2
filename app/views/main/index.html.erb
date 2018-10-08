@@ -1,2 +1,22 @@
 <!-- Your code here -->
-<h1>Hello World!</h1>
+<!-- (Lab1_weather) -->
+
+<!-- create a form for friendlier User Inferface (UI) -->
+<%= form_with local: true, method: 'get' do |form| %>
+  City:<br>
+  <%= form.text_field :city %> <br>
+  <br>
+  <%= form.submit "Submit" %>
+<% end %>
+
+<!-- get all the cities from  gloabl cities array -->
+<% City.all %>
+<% City.all.each do |city| %>
+  <% if !City.all.nil? %>
+    <h1><%= city.name %></h1>
+    <p>
+      Temperature: <%= city.temperature %>°F
+      Weather Condition: <%= city.description %>
+    </p>
+  <% end %>
+<% end %>
